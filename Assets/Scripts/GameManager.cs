@@ -7,15 +7,42 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState gameState;
+
+    [Header("Game Settings")]
+    public float defaultStartTime;
+    public int score;
+
+
+    public static event Action<GameState> OnGameStateChanged;
     void Awake()
     {
-        Instance = new GameManager();
+        if(Instance == null)
+        {
+            Instance = this;
+        } else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
-
-        // UpdateGameState();
+        if (gameState != GameState.GameActive)
+        {
+            // UpdateGameState();
+        }
     }
+
+    void Init()
+    {
+        // - set timer
+        // - start timer
+        // - set default score ("0")
+        // - set *score* and *time* values in UI elements
+        // - create Ball instance
+        // - start Blackhole spawner
+    }
+
+
 
     public void UpdateGameState(GameState newState)
     {
@@ -25,11 +52,12 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.GameTimer:
                 break;
-            case GameState.GameOver:
+            case GameState.GameActive:
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState),newState, "Problem updating GameState");
         }
+        OnGameStateChanged?.Invoke(newState);
     }
 
     // Update is called once per frame
@@ -43,5 +71,5 @@ public enum GameState
 {
     PlayerScore,
     GameTimer,
-    GameOver,
+    GameActive
 }
