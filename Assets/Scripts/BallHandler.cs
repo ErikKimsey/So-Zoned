@@ -7,9 +7,11 @@ public class BallHandler : MonoBehaviour
     // Start is called before the first frame update
 
     private Rigidbody ball;
+    private Camera cam;
     void Start()
     {
         ball = GetComponent<Rigidbody>();
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -17,9 +19,12 @@ public class BallHandler : MonoBehaviour
     {
         if (Input.anyKey)
         {
-            Vector3 mousePos = Input.mousePosition.normalized;
-            Debug.Log(mousePos);
-            ball.AddForce(0f,0f,1f, ForceMode.Impulse);
+            Debug.Log("Input.mousePosition");
+            Debug.Log(Input.mousePosition);
+            Debug.Log("cam.ScreenToWorldPoint(Input.mousePosition)");
+            Ray mPosRay = cam.ScreenPointToRay(Input.mousePosition);
+            Vector3 mPosRayDIR = mPosRay.direction;
+            ball.AddForce(mPosRayDIR.x,0f,1f, ForceMode.Impulse);
         }
     }
 }
