@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class TargetColliderHandler : MonoBehaviour
+public class RespawnTriggerCollider : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject newBall;
