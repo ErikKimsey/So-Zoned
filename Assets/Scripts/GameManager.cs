@@ -6,14 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState gameState;
 
     [Header("Game Settings")]
     public float defaultStartTime;
     public int score;
+    private bool gameIsActive;
+    private bool gameIsOver;
 
-
-    public static event Action<GameState> OnGameStateChanged;
     void Awake()
     {
         if(Instance == null)
@@ -26,10 +25,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        if (gameState != GameState.GameActive)
-        {
-            // UpdateGameState();
-        }
+
     }
 
     void Init()
@@ -42,34 +38,38 @@ public class GameManager : MonoBehaviour
         // - start Blackhole spawner
     }
 
-
-
-    public void UpdateGameState(GameState newState)
+    void PlayerScored()
     {
-        switch (gameState)
-        {
-            case GameState.PlayerScore:
-                break;
-            case GameState.GameTimer:
-                break;
-            case GameState.GameActive:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(newState),newState, "Problem updating GameState");
-        }
-        OnGameStateChanged?.Invoke(newState);
+
     }
 
-    // Update is called once per frame
+    void UpdateUI_TimeRemaining()
+    {
+
+    }
+
+    void UpdateUI_Score()
+    {
+
+    }
+
+    void UpdateUI_FinalScore()
+    {
+
+    }
+
+    void IsActiveGame()
+    {
+
+    }
+
+    void RestartGame()
+    {
+
+    }
+
     void Update()
     {
         
     }
-}
-
-public enum GameState
-{
-    PlayerScore,
-    GameTimer,
-    GameActive
 }
