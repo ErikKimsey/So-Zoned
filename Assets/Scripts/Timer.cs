@@ -10,6 +10,11 @@ public class Timer : MonoBehaviour
         
     }
 
+    public void SaySumpin()
+    {
+        Debug.Log("sumpin");
+    }
+
     // Update is called once per frame
     void Update()
     {

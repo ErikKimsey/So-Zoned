@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6577e0ea95cc94e7fae4bbc3aa422dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultStartTime: 0
+  defaultStartTime: 10
   score: 0
 --- !u!4 &930071361
 Transform:
@@ -1221,6 +1221,7 @@ GameObject:
   - component: {fileID: 1822324077}
   - component: {fileID: 1822324079}
   - component: {fileID: 1822324078}
+  - component: {fileID: 1822324080}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -1344,6 +1345,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822324076}
   m_CullTransparentMesh: 1
+--- !u!114 &1822324080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822324076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ffddb591aa3348a8900e14aa9283f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2110363483
 PrefabInstance:
   m_ObjectHideFlags: 0
