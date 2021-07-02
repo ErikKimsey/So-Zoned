@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private bool gameIsActive;
     private bool gameIsOver;
 
-    Timer _timer;
+    // public Timer _timer;
     private ScoreManager scoreManager;
 
     void Awake()
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        _timer.SaySumpin();
+        // _timer.SaySumpin();
     }
 
     void Init()
