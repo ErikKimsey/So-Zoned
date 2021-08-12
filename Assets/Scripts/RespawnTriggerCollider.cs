@@ -11,10 +11,15 @@ public class RespawnTriggerCollider : MonoBehaviour
     [SerializeField] private GameObject respawnPoint;
     [SerializeField] private string ballTag;
     [CanBeNull] private GameObject m_newBall;
+
     void Start()
     {
-        Debug.Log(ballTag);
 
+    }
+
+    public void SpawnInitialBall()
+    {
+        m_newBall = Instantiate(newBall, respawnPoint.transform.position, Quaternion.identity);
     }
 
     void RespawnBall()

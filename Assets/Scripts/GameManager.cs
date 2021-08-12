@@ -10,12 +10,16 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     public float defaultStartTime;
     public int score;
+    [SerializeField] private GameObject lane;
     
     private bool gameIsActive;
     private bool gameIsOver;
-
-    // public Timer _timer;
+    
     private ScoreManager scoreManager;
+    public GameObject respawnTrigger;
+    private float initWait;
+
+
 
     void Awake()
     {
@@ -29,51 +33,33 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        // _timer.SaySumpin();
+        initWait = GetComponent<TitleManager>().textFadeOutBH;
+        if (initWait != null)
+        {
+            StartCoroutine(Init());
+        }
     }
 
-    void Init()
+    IEnumerator Init()
     {
-        // - set timer
-        // - start timer
-        // - set default score ("0")
-        // - set *score* and *time* values in UI elements
+        // - init Lane
+
         // - create Ball instance
+
         // - start Blackhole spawner
+        yield return new WaitForSeconds(initWait + 1f);
+        lane.SetActive(true);
+        StartCoroutine(SpawnInititalBall());
     }
 
-    void PlayerScored()
+    IEnumerator SpawnInititalBall()
     {
-
-    }
-
-    void UpdateUI_TimeRemaining()
-    {
-
-    }
-
-    void UpdateUI_Score()
-    {
-
-    }
-
-    void UpdateUI_FinalScore()
-    {
-
-    }
-
-    void IsActiveGame()
-    {
-
-    }
-
-    void RestartGame()
-    {
-
+        yield return new WaitForSeconds(1f);
+        respawnTrigger.GetComponent<RespawnTriggerCollider>().SpawnInitialBall();
     }
 
     void Update()
     {
-        
+
     }
 }
